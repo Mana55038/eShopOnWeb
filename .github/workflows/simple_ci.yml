@@ -5,12 +5,11 @@ on: [push, workflow_dispatch]
 
 #Environment variables https://docs.github.com/en/actions/learn-github-actions/environment-variables
 #env:
- #RESOURCE-GROUP: rg-eshoponweb-NAME
-  #LOCATION: westeurope
-  #TEMPLATE-FILE: infra/webapp.bicep
-  #SUBSCRIPTION-ID: YOUR-SUBS-ID
-  #WEBAPP-NAME: eshoponweb-webapp-NAME
-
+#  RESOURCE-GROUP: rg-eshoponweb-NAME
+#  LOCATION: westeurope
+#  TEMPLATE-FILE: infra/webapp.bicep
+#  SUBSCRIPTION-ID: YOUR-SUBS-ID
+#  WEBAPP-NAME: eshoponweb-webapp-NAME
 
 jobs:
   #Build, test and publish .net web project in repository
@@ -41,10 +40,4 @@ jobs:
       with:
         name: .net-app
         path: ${{env.DOTNET_ROOT}}/app.zip
-        
-    # upload the bicep template as artifacts for next job
-    - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v4
-      with:
-        name: bicep-template
-        path: ${{ env.TEMPLATE-FILE }}
+      
